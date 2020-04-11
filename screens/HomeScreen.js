@@ -10,6 +10,10 @@ import UserItem from '../components/UserItem'
 
 class HomeScreen extends React.Component {
 
+	componentDidMount() {
+		this._loadUsers()
+	}
+
 	constructor(props) {
 		super(props);
 
@@ -26,25 +30,15 @@ class HomeScreen extends React.Component {
 		})
 	}
 
-
 	render() {
-		// function test() {
-		// 	fetch('http://localhost:3000/users')
-		// 		.then(response => response.json())
-		// 		.then(users => console.log(users))
-		// }
-		//
-		// test();
-		//
-		// console.log("hello")
-
 		console.log("RENDER")
+
 		return (
 			<View style={styles.container}>
 				<ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
 					<View style={styles.welcomeContainer}>
 						<Text>My data</Text>
-						<Button title='Rechercher' onPress={() => this._loadUsers()}/>
+						<Button title='Recharger' onPress={() => this._loadUsers()}/>
 
 						<FlatList
 							data={this.state.users}
